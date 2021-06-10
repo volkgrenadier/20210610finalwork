@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .outer{
+            width: 100%;
+            height: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .nav{
+            width: 100%;
+            height: 80px;
+            background-color: rgb(24,24,24);
+            color: white;
+            align-items: center;
+        }
+        .nav{
+            display: flex;
+            justify-content: center;
+        }
+        .logo{
+            width: 106px;
+            height: 50px;
+        }
+        .firstnav{
+            width: 520px;
+            height: 50px;
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+            /* background-color: tomato; */
+        }
+        .firstnav li{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .firstnav li:nth-child(1) a{
+            color: orange;
+        }
+        .firstnav li:nth-child(4){
+            width: 130px;
+        }
+        .secondnav{
+            width: 320px;
+            height: 50px;
+            list-style: none;
+            display: flex;
+            /* background-color:violet; */
+        }
+        .secondnav li a{
+            color: rgb(155,155,155);
+        }
+        .secondnav li{
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 15px;
+            text-align: center;
+        }
+        .secondnav li div{
+            width: 15px;
+            height: 15px;
+            background-image: url('./images/icon1.png');
+            background-repeat: no-repeat;
+            display: inline-block;
+            background-position: -230px -27px;
+            position:relative;
+            top: 3px;
+        }
+        .serandlog{
+            width: 107px;
+            height: 50px;
+            font-size: 16px;
+        }
+        .serandlog span{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .serandlog span:nth-child(1){
+            margin-right: 5px;
+        }
+        .searchAndArrow{
+            font-size: 20px;
+            /* font-weight: bolder; */
+            margin-left: 10px;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .searchAndArrow img{
+            margin-left: 5px;
+        }
+        .music{
+            width: 1200px;
+            /* background-color: tomato; */
+            margin: 0 auto;
+            height: 700px;
+            position: relative;
+            display: flex;
+        }
+        .music .leftflank{
+            width: 700px;
+            height: 700px;
+            /* background-color: teal; */
+        }
+
+        .lefttop{
+            width: 700px;
+            height: 160px;
+            /* background-color: turquoise; */
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .nameofmusic{
+            width: 700px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 30px;
+            margin: 30px auto;
+            text-align: center;
+
+        }
+        .information{
+            width: 700px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        .information div{
+            width: 400px;
+            margin: 0 auto;
+            height: 50px;
+            text-align: center;
+            /* background-color: tomato; */
+        }
+        .information div p{
+            margin-top:5px;
+            font-size: 14px;
+        }
+        .pinglunlogo{
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background-image: url(./images/pl.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-right: 10px;
+        }
+        .information a{
+            margin-right: 10px;
+            color: orange;
+        }
+        .information a:nth-child(3){
+            color: rgb(153, 149, 149);
+        }
+        .leftbottom {
+            width: 700px;
+            height: 400px;
+        }
+        .leftbottom p{
+            width: 700px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin: 10px auto;
+        }
+
+        .rightflank{
+            width: 500px;
+            height: 700px;
+            position: relative;
+            /* background-color: violet; */
+        }
+        @keyframes zhuan {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .musicpic{
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background-image: url(./images/xyy.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 240px 240px;
+            position: absolute;
+            left: 130px;
+            top: 50px;
+            animation: zhuan 8s linear 0s infinite;
+        }
+        .control{
+            width: 500px;
+            height: 50px;
+            position: absolute;
+            top: 320px;
+        }
+        .playpic{
+            width: 40px;
+            height: 40px;
+            background-image: url('./images/icon2.jpg');
+            background-position: -162px 0px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 80px;
+        }
+        .progresscontain{
+            width: 250px;
+            height: 5px;
+            background-color: orange;
+            position: absolute;
+            left: 135px;
+            top: 18px;
+            background-color: rgb(204, 204, 204);
+        }
+        .progress{
+            width: 0px;
+            height: 5px;
+            background-color: orange;
+        }
+        .dot{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: orange;
+            position: absolute;
+            top:-3px;
+            left: -1px;
+        }
+        .durationTime{
+            width: 20px;
+            height: 15px;
+            font-size: 15px;
+            line-height: 15px;
+            position: absolute;
+            left: 395px;
+            top: 13px;
+            color: rgb(153, 149, 149)
+        }
+        .volumePic{
+            width: 23px;
+            height: 16px;
+            background-image: url(./images/icon2.jpg);
+            background-position: -67px 0px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 440px;
+            top: 11px;
+        }
+        .download{
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 17px;
+            background-image: url(./images/icon2.jpg);
+            background-repeat: no-repeat;
+            background-position: 0px -50px;
+            position: absolute;
+            top: 410px;
+            left: 150px;
+            text-align: center;
+        }
+        .download a{
+            color: black;
+        }
+        .download .downloadPic{
+            width: 20px;
+            height: 20px;
+            background-image: url(./images/icon2.jpg);
+            background-repeat: no-repeat;
+            background-position: 1px 0px;
+            display: inline-block;
+        }
+        .changge{
+            width: 250px;
+            height: 45px;
+            position: absolute;
+            top: 480px;
+            left: 125px;
+            /* background-color: brown; */
+        }
+        .changge div{display: inline-block;}
+        .headLogo{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-image: url(./images/kw.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .sanjiao,.singing{
+            background-color: rgb(222, 222, 234);
+        }
+        .sanjiao{
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 19px;
+            transform: rotate(45deg);
+        }
+        .singing{
+            width: 195px;
+            height: 45px;
+            border-radius: 7px;
+            position: absolute;
+            left: 50px;
+        }
+        .singing span,.singing a{
+            font-size: 11px;
+        }
+        .singing span:nth-child(1){
+            color: rgb(182, 181, 207);
+            display: block;
+            margin-left: 15px;
+            margin-top: 3px;
+        }
+        .singing span:nth-child(2){
+            color: rgb(130, 133, 177);
+            margin-left: 15px;
+        }
+        .singing a{
+            color: rgb(161, 123, 247);
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+        }
+        .discussion{
+            width: 800px;
+            height: 805px;
+            /* background-color: orangered; */
+            margin: 0 auto;
+            position: relative;
+        }
+        .topOfDiscussion{
+            width: 800px;
+            height: 50px;
+            position: relative;
+            font-size: 22px;
+            line-height: 50px;
+            padding-left: 25px;
+        }
+        .numberOfDiscussion{
+            font-size: 16px;
+            margin-left: 15px;
+        }
+        .myDiscussion{
+            width: 760px;
+            height: 240px;
+            /* background-color: palegreen; */
+            padding: 20px 20px 20px 20px;
+            position: relative;
+        }
+        .discussionHeadLogo{
+            width: 45px;
+            height: 45px;
+            background-image: url(./images/kw.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;   
+        }
+        .myDiscussion form textarea{
+            width: 650px;
+            height: 200px;
+            resize: none;
+            position: absolute;
+            top: 20px;
+            left: 90px;
+            color: rgba(0,0,0,0.5);
+        }
+        .myDiscussion button{
+            width: 70px;
+            height: 30px;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+        .myDiscussion span{
+            position: absolute;
+            bottom: 25px;
+            right: 110px;
+            font-size: 13px;
+        }
+        .jcpl{
+            width: 800px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            margin: 10px 0px 10px 20px;
+        }
+        .otherDiscussion{
+            width: 800px;
+            height: 290px;
+            /* background-color: blueviolet; */
+            position: relative;
+        }
+        .page{
+            width: 800px;
+            height: 290px;
+            /* background-color: cyan; */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .detail{
+            width: 800px;
+            height: 130px;
+            position: relative;
+            /* background-color: cornflowerblue; */
+        }
+        .detail .headLogo{
+            position: absolute;
+            top: 15px;
+            left: 25px;
+        }
+        .idname{
+            position: absolute;
+            top: 15px;
+            left: 80px;
+            color: orange;
+        }
+        .neirong{
+            position: absolute;
+            left: 80px;
+            top: 40px;
+        }
+        .shijian{
+            position: absolute;
+            bottom: 15px;
+            left: 80px;
+            font-size: 13px;
+        }
+        .huifu{
+            position: absolute;
+            right: 25px;
+            bottom: 15px;
+        }
+        .dianzanshu{
+            position: absolute;
+            right: 90px;
+            bottom: 15px;
+        }
+        .shanchu{
+            position: absolute;
+            right: 120px;
+            bottom: 15px;
+        }
+        .fenxiang{
+            position: absolute;
+            top: 15px;
+            right: 25px;
+        }
+        #change{
+            width: 800px;
+            height: 30px;
+            /* background-color: burlywood; */
+            position: absolute;
+            bottom: 0;
+            z-index: 2;
+            text-align: center;
+        }
+        #change div{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: rgb(237, 237, 237);
+            display: inline-block;
+            text-align: center;
+        }
+        #change ul{
+            display: inline-block;
+        }
+        #change ul li{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: rgb(237, 237, 237);
+            display: inline-block;
+            margin:0px 5px;
+        }
+        #change ul #li1{
+            color: white;
+            background-color: rgb(253, 186, 0); 
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="player">
+            <div class="nav">
+                <div class="logo"><img src="./images/logo.jpg"></div>
+                <ul class="firstnav">
+                    <li><a href=''>首页</a></li>
+                    <li><a href=''>榜单</a></li>
+                    <li><a href=''>歌手</a></li>
+                    <li><a href=''>下载酷我客户端</a></li>
+                </ul>
+                <ul class="secondnav">
+                    <li><div></div><a href=''>美女秀</a></li>
+                    <li><div></div><a href=''>酷我耳机</a></li>
+                    <li><div></div><a href=''>VIP会员</a></li>
+                    <li><div></div><a href=''>i听</a></li>
+                </ul>
+                <div class="serandlog">
+                    <span class="serve"><a href=''>更多服务</a></span>
+                    <span class="login"><a href=''>登录</a></span>
+                </div>
+                <div class="searchAndArrow"><a href="">^</a><img src="./images/search.png"></div>
+            </div>
+            <div class="music">
+                <div class="leftflank">
+                    <div class="lefttop">
+                        <div class="nameofmusic">喜羊羊</div>
+                        <div class="information">
+                            <div>
+                                <span>专辑：<a href="">儿歌大全</a></span><span>歌手：<a href="">华语群星</a></span><a href="">分享</a><span class="pinglunlogo"></span><a href="">评论</a>
+                                <p>上传时间：2016-10-02 歌曲来源：网络</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="leftbottom">
+                        <p>在所有天气 都有叫人 大笑的力量</p>
+                        <p>虽然我只是羊</p>
+                        <p>虽然我只是羊</p>
+                        <p>喜羊羊 美羊羊 懒羊羊 沸羊羊</p>
+                        <p>慢羊羊 暖羊羊 红太狼 灰太狼</p>
+                    </div>
+                </div>
+                <div class="rightflank">
+                    <div class="musicpic"></div>
+                    <div class="control">
+                        <div class="playpic" id="playPic"></div>
+                        <div class="progresscontain" id="progressContain">
+                            <div class="progress" id="progress"></div>
+                            <div class="dot" id="dot"></div>
+                        </div>
+                        <div class="durationTime" id="durationTime">00:00</div>
+                        <div class="volumePic" id="volumePic"></div>
+                    </div>
+                    <div class="download"><div class='downloadPic'></div><a href="">免费下载这首歌</a></div>
+                    <div class="changge">
+                        <div class="headLogo"></div>
+                        <div class="sanjiao"></div>
+                        <div class="singing"><span>郭子仪——H5班</span><span>喜羊羊与灰太狼</span><a href="">去现场 ></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="discussion">
+            <div class="topOfDiscussion">评论<span class="numberOfDiscussion" id="numberOfDiscussion">1703条评论</span></div>
+            <hr>
+            <div class="myDiscussion">
+                <div class="discussionHeadLogo"></div>
+                <form>
+                    <textarea id="myTextarea">分享你的音乐见解</textarea>
+                </form>
+                <span id="numOfWord">已输入0个字</span>
+                <button id="btn">评论</button>
+            </div>
+            <div class="jcpl">精彩评论</div>
+            <hr>
+            <div class="otherDiscussion" id="otherDiscussion">
+                <!-- <div class="page">
+                    <div class="detail">
+                        <div class="headLogo"></div>
+                        <span class="idname">郭子仪</span>
+                        <span class="neirong">Too</span>
+                        <span class="shijian">2021-06-01 11:11:11</span>
+                        <span class="shanchu">删除</span>
+                        <span class="dianzanshu">0</span>
+                        <span class="huifu"><a href="">回复</a></span>
+                    </div>
+                    <div class="detail"></div>
+                    <div class="detail"></div>
+                </div> -->
+            </div>
+            <div id="change">
+                <div id="leftChange"><</div>
+                <ul id="changeul"></ul>
+                <div id="rightChange">></div>
+            </div>
+        </div>
+    </div>
+    <audio id="mymusic">
+        <source src="./audio/a.mp3" type="audio/mp3"></audio>
+    <script>
+        var play=document.getElementById('mymusic');
+        var playpic=document.getElementById('playPic');
+        var progress=document.getElementById('progress');
+        var progresscontain=document.getElementById('progressContain');
+        var durationT=play.duration;
+        var dot=document.getElementById('dot');
+        var durationTime=document.getElementById('durationTime');
+        var volumePic=document.getElementById('volumePic');
+        var myTextarea=document.getElementById('myTextarea');
+        var myNumOfWord=document.getElementById('numOfWord');
+        var btn=document.getElementById('btn');
+        var myOd=document.getElementById('otherDiscussion');
+        var count,now=1,licount=0;
+        let changeul=document.getElementById("changeul");
+        //音乐暂停与播放
+        playpic.onclick=function (){
+            if(play.paused==true){
+                playpic.style.backgroundPositionX='-207px';
+                playpic.style.backgroundPositionY='-48px';
+                play.play();
+            }
+            else if(play.paused==false){
+                playpic.style.backgroundPositionX='-162px';
+                playpic.style.backgroundPositionY='-0px';
+                play.pause();
+            }
+        }
+        //当前播放时间与进度条
+        function funduration(){
+            var durationT=play.duration;
+            var current=play.currentTime;
+            var min=parseInt(current/60);
+            var sec=parseInt(current%60);
+            progress.style.width=current/durationT*250+'px';
+            dot.style.left=current/durationT*250+'px';
+            if(min<10&&sec<10){
+                durationTime.innerHTML=`0${min}:0${sec}`;
+            }
+            else if(min>10&&sec<10){
+                durationTime.innerHTML=`${min}:0${sec}`;
+            }
+            else if(min<10&&sec>=10){
+                durationTime.innerHTML=`0${min}:${sec}`;
+            }
+            else if(min>10&&sec>=10){
+                durationTime.innerHTML=`${min}:${sec}`;
+            }
+        }
+        window.onload=setInterval(funduration,1000);
+        //静音与不静音
+        volumePic.onclick=function(){
+            if(play.muted){
+                play.muted=false;
+                volumePic.style.backgroundPosition='-67px 0px';
+            }
+            else{
+                play.muted=true;
+                volumePic.style.backgroundPosition='9px -23px';
+            }
+        }
+        //记录当前往文本框中输入了几个字
+        myTextarea.onkeyup=function(){
+            if(myTextarea.value!=null){
+                var num=myTextarea.value.length;
+                // console.log(num);
+                myNumOfWord.innerHTML=`已输入${num}个字`;
+            }
+            else{
+                myNumOfWord.innerHTML=`已输入0个字`;
+            }           
+        }
+        //点击评论往本地保存数据
+        //绑定事件
+        btn.onclick=function (){
+            if(myTextarea.value==null){
+                alert('请输入评论！');
+            }
+            else{
+                save(myTextarea.value);
+                
+            }
+        }
+        //实际保存函数
+        function save(txt){
+            if(window.localStorage){
+                var data=localStorage['localdata'];
+                var temp=new Date();
+                let year=temp.getFullYear()>9?temp.getFullYear():`0${temp.getFullYear()}`;
+                let mon=temp.getMonth()+1>9?temp.getMonth()+1:`0${temp.getMonth()+1}`;
+                let day=temp.getDate()>9?temp.getDate():`0${temp.getDate()}`;
+                let hour=temp.getHours()>9?temp.getHours():`0${temp.getHours()}`;
+                let min=temp.getMinutes()>9?temp.getMinutes():`0${temp.getMinutes()}`;
+                let se=temp.getSeconds()>9?temp.getSeconds():`0${temp.getSeconds()}`;
+                var currentDate=`${year}-${mon}-${day} ${hour}:${min}:${se}`;
+                if(data==null||data==""){
+                    data="[]";
+                }
+                data=JSON.parse(data);
+                var obj={
+                    name:"米哈伊尔·谢尔盖耶维奇·戈尔巴乔夫",
+                    content:txt,
+                    time:currentDate,
+                    objid:data.length,
+                    zhan:0
+                }
+                data.push(obj);
+                data=JSON.stringify(data);
+                localStorage['localdata']=data;
+                get();
+            }
+            else{
+                alert('抱歉，您的浏览器不支持保存评论');
+            }
+        }
+        //从本地存储取数据
+        function get(){
+            var data=localStorage['localdata'];
+            var pagea;
+            let k,h;
+            count=0;
+            // console.log(data);
+            if(data!=undefined){
+                data=JSON.parse(data);
+                h=data.length;
+                // console.log(h);
+            }
+            else{
+                h=0
+            }
+            let numberDiscussion=document.getElementById('numberOfDiscussion');
+            numberDiscussion.innerHTML=`${h}条评论`;
+            myOd.innerHTML="";
+            changeul.innerHTML="";
+            // console.log(myOd);
+            // console.log(changeul);
+            for(let i=0;i<h;i++){
+                if(i%3==0){
+                    let tempid=Math.floor(i/3);
+                    //创建评论页
+                    let page=document.createElement("div");
+                    count+=1;
+                    page.setAttribute('class','page');
+                    page.setAttribute('id',`p${tempid}`);
+                    if(i!=0){
+                        page.setAttribute('style','opacity:0');
+                    }
+                    
+                    for(let j=0;j<3;j++){
+                        let detail=document.createElement("div");
+                        detail.setAttribute('class','detail');
+                        detail.setAttribute('id',`detail${tempid}${j}`);
+                        // detail.setAttribute('style','width: 800px;height: 130px;position: relative;background-color: cornflowerblue;');
+                        page.appendChild(detail);
+                    }
+                    myOd.appendChild(page);
+
+                    //创建换页栏的页码
+                    let changeEle=document.createElement("li");
+                    changeEle.setAttribute('id',`li${tempid+1}`);
+                    changeEle.innerHTML=tempid+1;
+                    
+                    //对换页栏元素绑定事件
+                    changeEle.onclick=function(event){
+
+                        let e=event.target.id.split('i')[1];
+                        e=parseInt(e);
+                        event.target.style.backgroundColor='rgb(253, 186, 0)';
+                        for(let f=1;f<=count;f++){
+                            let nowpage=document.getElementById(`p${f-1}`);
+                            let nowli=document.getElementById(`li${f}`);
+                            // console.log(`li${f}`);
+                            // console.log(count);
+                            nowli.style.backgroundColor='rgb(237, 237, 237)';
+                            nowli.style.color='black';
+                            nowpage.style.opacity=0;
+                            if(f==e){
+                                nowpage.style.opacity=1;
+                                nowli.style.backgroundColor='rgb(253, 186, 0)';
+                                nowli.style.color='white';
+                                now=f;
+                            }
+                            //li和span的隐藏和显示
+                            if(e==1){
+                                if(f<e+3||f==count){
+                                    nowli.style.display='inline-block';
+                                }
+                                else{
+                                    nowli.style.display='none';
+                                }
+                                let oldSpan=document.getElementById('mySpan');
+                                if(oldSpan!=null){
+                                    changeul.removeChild(oldSpan);
+                                    let newSpan=document.createElement('span');
+                                    newSpan.setAttribute("id",'mySpan');
+                                    if(count>4){
+                                        newSpan.innerHTML='...';
+                                        let posi=document.getElementById(`li${count}`);
+                                        changeul.insertBefore(newSpan,posi);
+                                    }
+                                    else{
+                                        newSpan.innerHTML='';
+                                        changeul.appendChild(newSpan);
+                                    }
+                                }
+                            }
+                            else if(e==count){
+                                if(f>e-4){
+                                    nowli.style.display='inline-block';
+                                }
+                                else{
+                                    nowli.style.display='none';
+                                }
+                                let oldSpan=document.getElementById('mySpan');
+                                if(oldSpan!=null){
+                                    changeul.removeChild(oldSpan);
+                                    let newSpan=document.createElement('span');
+                                    newSpan.setAttribute("id",'mySpan');
+                                    newSpan.innerHTML='';
+                                    
+                                    let posi=document.getElementById(`li${count}`);
+                                    changeul.insertBefore(newSpan,posi);
+                                }
+                            }
+                            else if(e==count-1){
+                                if(f>e-3){
+                                    nowli.style.display='inline-block';
+                                }
+                                else{
+                                    nowli.style.display='none';
+                                }
+                                let oldSpan=document.getElementById('mySpan');
+                                if(oldSpan!=null){
+                                    changeul.removeChild(oldSpan);
+                                    let newSpan=document.createElement('span');
+                                    newSpan.setAttribute("id",'mySpan');
+                                    newSpan.innerHTML='';
+                                    
+                                    let posi=document.getElementById(`li${count}`);
+                                    changeul.insertBefore(newSpan,posi);
+                                }
+                            }
+                            else if(e==count-2){
+                                if((f>e-2&&f<e+2)||f==count){
+                                    nowli.style.display='inline-block';
+                                }
+                                else{
+                                    nowli.style.display='none';
+                                }
+                                let oldSpan=document.getElementById('mySpan');
+                                if(oldSpan!=null){
+                                    changeul.removeChild(oldSpan);
+                                    let newSpan=document.createElement('span');
+                                    newSpan.setAttribute("id",'mySpan');
+                                    newSpan.innerHTML='';
+                                    
+                                    let posi=document.getElementById(`li${count}`);
+                                    changeul.insertBefore(newSpan,posi);
+                                }
+                            }
+                            else{
+                                if((f>e-2&&f<e+2)||f==count){
+                                    nowli.style.display='inline-block';
+                                }
+                                else{
+                                    nowli.style.display='none';
+                                }
+                                let oldSpan=document.getElementById('mySpan');
+                                if(oldSpan!=null){
+                                    changeul.removeChild(oldSpan);
+                                    let newSpan=document.createElement('span');
+                                    newSpan.setAttribute("id",'mySpan');
+                                    newSpan.innerHTML='...';
+                                    
+                                    let posi=document.getElementById(`li${count}`);
+                                    changeul.insertBefore(newSpan,posi);
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    if(i==h-h%3){
+                        // console.log(i);
+                        let temp=document.createElement('span');
+                        temp.setAttribute('id','mySpan');
+                        if(count>4){
+                            temp.innerHTML='...';
+                            let posi=document.getElementById(`li${count}`);
+                            changeul.insertBefore(temp,posi);
+                        }
+                        else{
+                            temp.innerHTML='';
+                            changeul.appendChild(temp);
+                        }
+                        for(let a=1;a<count;a++){
+                            let v=document.getElementById(`li${a}`);
+                            if(a>3&&a<count){
+                                v.style.display='none';
+                            }
+                        }
+                    }
+                    changeul.appendChild(changeEle);
+                    
+                }
+                let where=document.getElementById(`detail${Math.floor(i/3)}${i%3}`);
+
+                // console.log(`detail${Math.floor(i/3)}${i%3}`,i);
+
+
+                let headLogo=document.createElement("div");
+                headLogo.setAttribute('class','headLogo');
+                headLogo.setAttribute('id',`logo${i}`);
+
+                let myspan=document.createElement("span");
+                myspan.setAttribute('class','idname');
+                myspan.setAttribute('id',`idname${i}`);
+
+                let neirong=document.createElement("span");
+                neirong.setAttribute('class','neirong');
+                neirong.setAttribute('id',`neirong${i}`);
+
+                let shijiana=document.createElement("span");
+                shijiana.setAttribute('class','shijian');
+                shijiana.setAttribute('id',`shijian${i}`);
+
+                let shanchu=document.createElement("span");
+                shanchu.setAttribute('class','shanchu');
+                shanchu.setAttribute('id',`shanchu${i}`);
+                shanchu.innerHTML='删除';
+
+                let dianzanshu=document.createElement("span");
+                dianzanshu.setAttribute('class','dianzanshu');
+                dianzanshu.setAttribute('id',`dianzanshu${i}`);
+
+                let fenxiang=document.createElement("span");
+                fenxiang.setAttribute('class','fenxiang');
+                fenxiang.setAttribute('id',`fenxiang${i}`);
+                fenxiang.innerHTML='<a href="" style="color:black">分享</a>'
+
+                let huifu=document.createElement("span");
+                huifu.setAttribute('class','huifu');
+                huifu.setAttribute('id',`huifu${i}`);
+                huifu.innerHTML='<a href="" style="color:black">回复</a>';
+
+                myspan.innerHTML=data[i].name;
+                neirong.innerHTML=data[i].content;
+                shijiana.innerHTML=data[i].time;
+                dianzanshu.innerHTML=data[i].zhan;
+                where.appendChild(fenxiang);
+                where.appendChild(headLogo);
+                where.appendChild(myspan);
+                where.appendChild(neirong);
+                where.appendChild(shijiana);
+                where.appendChild(shanchu);
+                where.appendChild(dianzanshu);
+                where.appendChild(huifu);
+            }
+        }
+        window.onload=get();
+        let leftC=document.getElementById('leftChange');
+        let rightC=document.getElementById('rightChange');
+        leftC.onclick=function(){
+            if(changeul.hasChildNodes){
+                if(now>1){
+                    now-=1;
+                    let newNow=document.getElementById(`li${now}`);
+                    for(let f=1;f<=count;f++){
+                        let nowpage=document.getElementById(`p${f-1}`);
+                        let nowli=document.getElementById(`li${f}`);
+                        nowli.style.backgroundColor='rgb(237, 237, 237)';
+                        nowli.style.color='black';
+                        nowpage.style.opacity=0;
+                        if(f==now){
+                            nowpage.style.opacity=1;
+                            nowli.style.backgroundColor='rgb(253, 186, 0)';
+                            nowli.style.color='white';
+                            now=f;
+                        }
+                        if(now==1){
+                            if(f<now+3||f==count){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                if(count>4){
+                                    newSpan.innerHTML='...';
+                                    let posi=document.getElementById(`li${count}`);
+                                    changeul.insertBefore(newSpan,posi);
+                                }
+                                else{
+                                    newSpan.innerHTML='';
+                                    changeul.appendChild(newSpan);
+                                }
+                            }
+                        }
+                        else if(now==count){
+                            if(f>now-4){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='';
+                                
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }
+                        else if(now==count-1){
+                            if(f>now-3){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='';
+                                
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }
+                        else if(now==count-2){
+                            if((f>now-2&&f<now+2)||f==count){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                 nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='';
+                                
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }
+                        else{
+                            if((f>now-2&&f<now+2)||f==count){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='...';
+                                
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        rightC.onclick=function(){
+            if(changeul.hasChildNodes){
+                if(now<count){
+                    console.log(now);
+                    now+=1;
+                    console.log(now,'现在');
+                    let newNow=document.getElementById(`li${now}`);
+                    for(let f=1;f<=count;f++){
+                        let nowpage=document.getElementById(`p${f-1}`);
+                        let nowli=document.getElementById(`li${f}`);
+                        nowli.style.backgroundColor='rgb(237, 237, 237)';
+                        nowli.style.color='black';
+                        nowpage.style.opacity=0;
+                        if(f==now){
+                            nowpage.style.opacity=1;
+                            nowli.style.backgroundColor='rgb(253, 186, 0)';
+                            nowli.style.color='white';
+                            now=f;
+                        }
+                        if(now==1){
+                            if(f<now+3||f==count){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                if(count>4){
+                                    newSpan.innerHTML='...';
+                                    let posi=document.getElementById(`li${count}`);
+                                    changeul.insertBefore(newSpan,posi);
+                                }
+                                else{
+                                    newSpan.innerHTML='';
+                                    changeul.appendChild(newSpan);
+                                }
+                            }
+                        }
+                        else if(now==count){
+                            if(f>now-4){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='';
+                                
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }
+                        else if(now==count-1){
+                            if(f>now-3){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='';
+                                
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }
+                        else if(now==count-2){
+                            if((f>now-2&&f<now+2)||f==count){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                 nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='';
+                                
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }
+                        else{
+                            if((f>now-2&&f<now+2)||f==count){
+                                nowli.style.display='inline-block';
+                            }
+                            else{
+                                nowli.style.display='none';
+                            }
+                            let oldSpan=document.getElementById('mySpan');
+                            if(oldSpan!=null){
+                                changeul.removeChild(oldSpan);
+                                let newSpan=document.createElement('span');
+                                newSpan.setAttribute("id",'mySpan');
+                                newSpan.innerHTML='...';
+                                let posi=document.getElementById(`li${count}`);
+                                changeul.insertBefore(newSpan,posi);
+                            }
+                        }  
+                    }
+                }
+            }
+        }
+        // console.log(count);
+        
+    </script>
+</body>
+</html>
